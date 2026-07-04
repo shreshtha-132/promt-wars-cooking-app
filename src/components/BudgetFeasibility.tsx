@@ -1,5 +1,5 @@
 import React from 'react';
-import { DollarSign, AlertCircle, CheckCircle2, ChevronRight, HelpCircle } from 'lucide-react';
+import { IndianRupee, AlertCircle, CheckCircle2, ChevronRight, HelpCircle } from 'lucide-react';
 import { BudgetFeasibility as BudgetFeasibilityType } from '../types';
 
 interface BudgetFeasibilityProps {
@@ -25,7 +25,7 @@ export const BudgetFeasibility: React.FC<BudgetFeasibilityProps> = ({ feasibilit
     <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-6 sm:p-8 space-y-6" id="budget-feasibility-section">
       <div>
         <h3 className="text-lg font-semibold text-slate-800 flex items-center gap-2">
-          <DollarSign className="w-5 h-5 text-indigo-600" />
+          <IndianRupee className="w-5 h-5 text-indigo-600" />
           Budget Feasibility & Cost Assessment
         </h3>
         <p className="text-xs text-slate-500 mt-1">

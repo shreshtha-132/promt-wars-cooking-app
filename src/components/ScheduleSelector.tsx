@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Calendar, Clock, DollarSign, Users, Sparkles, ChefHat, Dumbbell, Coffee, Heart } from 'lucide-react';
+import { Calendar, Clock, IndianRupee, Users, Sparkles, ChefHat, Dumbbell, Coffee, Heart } from 'lucide-react';
 import { UserPreferences } from '../types';
 
 interface ScheduleSelectorProps {
@@ -155,7 +155,7 @@ export const ScheduleSelector: React.FC<ScheduleSelectorProps> = ({ onGenerate, 
           <div className="space-y-2">
             <div className="flex justify-between items-center">
               <label htmlFor="budget-input" className="text-sm font-semibold text-slate-700 flex items-center gap-1">
-                <DollarSign className="w-4 h-4 text-slate-400" />
+                <IndianRupee className="w-4 h-4 text-slate-400" />
                 Target Daily Budget
               </label>
               <span className="text-sm font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-lg">₹{budget} INR</span>
