@@ -67,8 +67,8 @@ export const GroceryList: React.FC<GroceryListProps> = ({ items }) => {
           <div className="w-px bg-slate-200 h-8" />
           <div>
             <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">Shopping Est.</span>
-            <span className="text-sm font-bold text-indigo-600">${totalCost.toFixed(2)}</span>
-            <span className="text-[10px] text-slate-400 block">of ${fullCost.toFixed(2)} total</span>
+            <span className="text-sm font-bold text-indigo-600">₹{totalCost.toFixed(2)}</span>
+            <span className="text-[10px] text-slate-400 block">of ₹{fullCost.toFixed(2)} total</span>
           </div>
         </div>
       </div>
@@ -130,7 +130,7 @@ export const GroceryList: React.FC<GroceryListProps> = ({ items }) => {
 
                 <div className="flex items-center gap-3">
                   <span className={`text-xs font-mono font-bold ${isChecked ? 'text-slate-400' : 'text-slate-700'}`}>
-                    ${item.estimatedCost.toFixed(2)}
+                    ₹{item.estimatedCost.toFixed(2)}
                   </span>
                   
                   {item.substitution && (

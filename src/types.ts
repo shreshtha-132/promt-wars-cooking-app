@@ -25,7 +25,7 @@ export interface GroceryItem {
   name: string;
   category: string; // e.g., "Produce", "Pantry", "Protein", "Dairy", "Grains", "Bakery"
   quantity: string; // e.g., "200g", "2 units"
-  estimatedCost: number; // in USD
+  estimatedCost: number; // in INR
   substitution: string; // Suggested substitution if unavailable
 }
 
@@ -46,6 +46,6 @@ export interface CookingPlan {
 export interface UserPreferences {
   dayDescription: string;
   diet: 'anything' | 'vegetarian' | 'vegan' | 'keto' | 'gluten-free' | 'low-carb';
-  budget: number; // Target budget in USD
+  budget: number; // Target budget in INR
   servings: number;
 }

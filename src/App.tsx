@@ -210,7 +210,7 @@ export default function App() {
                   </div>
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl px-4 py-2.5 border border-white/10">
                     <span className="text-[10px] uppercase font-bold text-indigo-300 block">Daily Budget</span>
-                    <span className="text-sm font-bold">${preferences?.budget} USD</span>
+                    <span className="text-sm font-bold">₹{preferences?.budget} INR</span>
                   </div>
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl px-4 py-2.5 border border-white/10">
                     <span className="text-[10px] uppercase font-bold text-indigo-300 block">Servings</span>

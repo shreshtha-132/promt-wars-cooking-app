@@ -41,11 +41,11 @@ export const BudgetFeasibility: React.FC<BudgetFeasibilityProps> = ({ feasibilit
             <div className="space-y-2">
               <div className="flex justify-between items-center text-sm">
                 <span className="text-slate-500">Target Budget:</span>
-                <span className="font-bold text-slate-700">${targetBudget.toFixed(2)}</span>
+                <span className="font-bold text-slate-700">₹{targetBudget.toFixed(2)}</span>
               </div>
               <div className="flex justify-between items-center text-sm">
                 <span className="text-slate-500">Estimated Cost:</span>
-                <span className="font-bold text-slate-900">${totalEstimatedCost.toFixed(2)}</span>
+                <span className="font-bold text-slate-900">₹{totalEstimatedCost.toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -55,12 +55,12 @@ export const BudgetFeasibility: React.FC<BudgetFeasibilityProps> = ({ feasibilit
             {isOverBudget ? (
               <span className="inline-flex items-center gap-1 text-xs font-bold text-rose-600 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-100">
                 <AlertCircle className="w-3.5 h-3.5" />
-                Over by ${difference.toFixed(2)}
+                Over by ₹{difference.toFixed(2)}
               </span>
             ) : (
               <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
                 <CheckCircle2 className="w-3.5 h-3.5" />
-                Under by ${difference.toFixed(2)}
+                Under by ₹{difference.toFixed(2)}
               </span>
             )}
           </div>

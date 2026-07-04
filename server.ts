@@ -51,20 +51,20 @@ app.post('/api/generate-plan', async (req, res) => {
       User Context:
       - Day's description/schedule: "${dayDescription}"
       - Dietary requirements: "${diet}"
-      - Target budget: $${budget} USD for the whole day
+      - Target budget: ₹${budget} INR for the whole day
       - Servings needed: ${servings} person/people
 
       Please create:
-      1. A customized, practical 3-meal plan (Breakfast, Lunch, Dinner) tailored precisely to the time constraints and energy requirements of my day.
+      1. A customized, practical 3-meal plan (Breakfast, Lunch, Dinner) tailored precisely to the time constraints and energy requirements of my day. IMPORTANT: The meals must be authentic Indian cuisine suitable for the Indian context.
       2. An actionable Cooking Schedule/To-Do List (timestamped blocks like "08:00 AM", "01:15 PM" matching my busy hours, specifying exactly what preparation, active cooking, and cleaning tasks to do, and how long they take). Make this logical and realistic!
-      3. A Grocery Checklist with exact ingredient quantities, categorized correctly (Produce, Pantry, Protein, Dairy, etc.), realistic estimated grocery store costs (in USD) for each item, and smart ingredient substitutions in case any items are unavailable or need to be swapped for allergy/preference reasons.
-      4. A Budget Feasibility report analyzing whether the $${budget} budget is sufficient for these ingredients at ${servings} serving(s), along with a feasibility score (0-100), a friendly and encouraging verdict, and practical, actionable tips to save money on this specific meal plan (e.g., buying in bulk, omitting optional spices, swapping out a protein, using pantry staples).
+      3. A Grocery Checklist with exact ingredient quantities, categorized correctly (Produce, Pantry, Protein, Dairy, etc.), realistic estimated grocery store costs (in INR) for each item, and smart ingredient substitutions in case any items are unavailable or need to be swapped for allergy/preference reasons.
+      4. A Budget Feasibility report analyzing whether the ₹${budget} budget is sufficient for these ingredients at ${servings} serving(s), along with a feasibility score (0-100), a friendly and encouraging verdict, and practical, actionable tips to save money on this specific meal plan (e.g., buying in bulk, omitting optional spices, swapping out a protein, using pantry staples).
 
-      Make sure all estimated costs in the grocery list sum up to the "totalEstimatedCost" in the budget feasibility object. Keep ingredient prices realistic (e.g. garlic clover is $0.20, chicken breasts for 2 is $5.00, spinach is $1.50).
+      Make sure all estimated costs in the grocery list sum up to the "totalEstimatedCost" in the budget feasibility object. Keep ingredient prices realistic for India in INR (e.g. garlic clover is ₹10, paneer for 2 is ₹150, spinach is ₹30).
     `;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-3.5-flash',
+      model: 'gemini-2.0-flash',
       contents: prompt,
       config: {
         systemInstruction: `
@@ -130,7 +130,7 @@ app.post('/api/generate-plan', async (req, res) => {
                   name: { type: Type.STRING, description: 'Name of the ingredient' },
                   category: { type: Type.STRING, description: 'Produce, Protein, Dairy, Pantry, Bakery, or Grains' },
                   quantity: { type: Type.STRING, description: 'Exact quantity needed (e.g. "2 cups", "500g", "1/2 head")' },
-                  estimatedCost: { type: Type.NUMBER, description: 'Estimated cost in USD (e.g. 1.50)' },
+                  estimatedCost: { type: Type.NUMBER, description: 'Estimated cost in INR (e.g. 150)' },
                   substitution: { type: Type.STRING, description: 'Excellent common alternative' }
                 },
                 required: ['id', 'name', 'category', 'quantity', 'estimatedCost', 'substitution']

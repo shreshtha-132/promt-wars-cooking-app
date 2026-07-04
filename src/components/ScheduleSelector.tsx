@@ -14,7 +14,7 @@ const PRESETS = [
     description: 'Quick breakfast/lunch, easy hands-off dinner',
     dayDescription: 'Busy day of meetings 9 AM - 6 PM. Only have 15 mins for breakfast, 20 mins for lunch, and want a simple 30 min dinner after a tiring workday.',
     diet: 'anything' as const,
-    budget: 20,
+    budget: 800,
     servings: 1,
     icon: Coffee,
     color: 'border-amber-500/30 text-amber-500 bg-amber-500/5 hover:bg-amber-500/10'
@@ -24,7 +24,7 @@ const PRESETS = [
     description: 'Leisurely brunch, slow-cooked comforting meal',
     dayDescription: 'A completely relaxing Sunday at home. I want to spend some quality time cooking a delicious warm lunch and a comforting slow-cooked dinner for the family.',
     diet: 'anything' as const,
-    budget: 45,
+    budget: 1500,
     servings: 4,
     icon: ChefHat,
     color: 'border-emerald-500/30 text-emerald-500 bg-emerald-500/5 hover:bg-emerald-500/10'
@@ -34,7 +34,7 @@ const PRESETS = [
     description: 'High-protein diet to power through leg day',
     dayDescription: 'Going to the gym for a heavy lifting session at 5 PM. Need muscle recovery meals: high protein, low sugar, nutrient-dense breakfast, lunch, and dinner.',
     diet: 'keto' as const,
-    budget: 30,
+    budget: 1000,
     servings: 1,
     icon: Dumbbell,
     color: 'border-blue-500/30 text-blue-500 bg-blue-500/5 hover:bg-blue-500/10'
@@ -44,7 +44,7 @@ const PRESETS = [
     description: 'Healthy, ultra-cheap plant-based day',
     dayDescription: 'Looking to save money and eat cleanly. Whole foods, fresh vegetables, minimal processed ingredients, keeping costs as absolute lowest as possible.',
     diet: 'vegan' as const,
-    budget: 12,
+    budget: 500,
     servings: 2,
     icon: Heart,
     color: 'border-rose-500/30 text-rose-500 bg-rose-500/5 hover:bg-rose-500/10'
@@ -54,7 +54,7 @@ const PRESETS = [
 export const ScheduleSelector: React.FC<ScheduleSelectorProps> = ({ onGenerate, isLoading }) => {
   const [dayDescription, setDayDescription] = useState('');
   const [diet, setDiet] = useState<UserPreferences['diet']>('anything');
-  const [budget, setBudget] = useState(25);
+  const [budget, setBudget] = useState(1000);
   const [servings, setServings] = useState(2);
 
   const applyPreset = (preset: typeof PRESETS[0]) => {
@@ -158,23 +158,23 @@ export const ScheduleSelector: React.FC<ScheduleSelectorProps> = ({ onGenerate, 
                 <DollarSign className="w-4 h-4 text-slate-400" />
                 Target Daily Budget
               </label>
-              <span className="text-sm font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-lg">${budget} USD</span>
+              <span className="text-sm font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-lg">₹{budget} INR</span>
             </div>
             <div className="flex items-center gap-3 py-1">
               <input
                 id="budget-input"
                 type="range"
-                min="10"
-                max="100"
-                step="5"
+                min="100"
+                max="5000"
+                step="100"
                 value={budget}
                 onChange={(e) => setBudget(Number(e.target.value))}
                 className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
               />
             </div>
             <div className="flex justify-between text-[10px] text-slate-400">
-              <span>$10 (Budget-friendly)</span>
-              <span>$100 (Premium)</span>
+              <span>₹100 (Budget-friendly)</span>
+              <span>₹5000 (Premium)</span>
             </div>
           </div>
 
