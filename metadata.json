@@ -1,0 +1,6 @@
+{
+  "name": "Cooking To-Do List",
+  "description": "An AI-powered micro-app that helps users generate a structured daily cooking plan, complete with meal selections, grocery checklists, ingredient substitutions, and budget feasibility estimates based on their day's schedule.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
